@@ -63,7 +63,7 @@ final class LinuxSocket extends Socket {
 
     void setNetworkInterface(NetworkInterface netInterface, InternetProtocolFamily family) throws IOException {
         InetAddress address = deriveInetAddress(netInterface, family == InternetProtocolFamily.IPv6);
-        if (address.equals(family == InternetProtocolFamily.IPv4 ? INET6_ANY : INET_ANY)) {
+        if (address.equals(family == InternetProtocolFamily.IPv4 ? INET_ANY : INET6_ANY)) {
             throw new IOException("NetworkInterface does not support " + family);
         }
         final NativeInetAddress nativeAddress = NativeInetAddress.newInstance(address);
